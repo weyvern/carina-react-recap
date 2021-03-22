@@ -1,3 +1,3 @@
-[] Search bar
+[X] Search bar
 [] List all the Pokémon
-[] Single Pokémon
+[X] Single Pokémon
