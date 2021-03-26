@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const SearchBar = ({ placeholder, setPokemon }) => {
+const SearchBar = ({ placeholder, setPokemon, setErrorMessage }) => {
   const [input, setInput] = useState('');
 
   const handleChange = e => {
@@ -15,6 +15,11 @@ const SearchBar = ({ placeholder, setPokemon }) => {
           .then(data => {
             setPokemon(data);
             setInput('');
+          })
+          .catch(err => {
+            setErrorMessage(err.name);
+            setInput('');
+            setTimeout(() => setErrorMessage(null), 3000);
           })
       : alert('Please type something');
   };
